@@ -1,0 +1,24 @@
+{
+  "name": "ev-database",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gprophete/ev-database.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gprophete/ev-database/issues"
+  },
+  "homepage": "https://github.com/gprophete/ev-database#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.15"
+  }
+}
