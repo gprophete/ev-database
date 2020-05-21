@@ -12,14 +12,15 @@ app.use(express.static(`${__dirname}/client/build`))
 
 app.use('/api/car', carRouter)
 
-app.get("/", (req, res) =>{
-    res.json("Ok")
-})
+// app.get("/", (req, res) =>{
+//     res.json("Ok")
+// })
 
 // app.use("car", carRouter)
 // app.use("category", categoryRouter)
 // app.use("benefit", benefitRouter)
 // app.use("feature", featureRouter)
+
 app.get('/*', (req, res) => {
     res.sendFile(`${__dirname}/client/build/index.html`)
 })
