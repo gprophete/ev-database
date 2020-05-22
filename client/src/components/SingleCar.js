@@ -7,13 +7,15 @@ import { Link } from 'react-router-dom'
 export default class SingleCar extends Component {
 
     state = {
-
-        make: '',
-        model: '',
-        bodyType: '',
-        year: Date,
-        price: 0
-
+        singleCar: {
+            make: '',
+            model: '',
+            bodyType: '',
+            year: new Date(),
+            price: 0,
+        },
+        editCarItem: true,
+        redirect: true,
     }
     componentDidMount() {
         this.getCarById()
@@ -31,23 +33,40 @@ export default class SingleCar extends Component {
         this.setState(res.data)
 
     }
-    onChange = (evt) =>{
-        const newState= {...this.state}
+    onChange = (evt) => {
+        const newState = { ...this.state }
         newState[evt.target.name] = evt.target.value
         this.setState(newState)
     }
-    onSubmit = async (evt) =>{
+    onSubmit = async (evt) => {
         evt.preventDefault()
-        try{
+        try {
             const carId = this.props.match.params.carId
             await axios.put(`/api/car/${carId}`, this.state)
             this.getCarById()
-        }catch (error) {
-            console.log("Failed to create new car")
+        } catch (error) {
+            console.log("Failed to update")
             console.log(error)
-            
+
         }
 
+    }
+
+    onDelete = async ()=>{
+        try {
+            const carId = this.props.match.params.carId
+            await axios.delete(`/api/car/${carId}`, this.state)
+            this.getCarById()
+        } catch (error) {
+            console.log("Failed to delete")
+            console.log(error)
+
+        }
+
+    }
+    toggleEditForm = () => {
+        const editCarItem = !this.state.editCarItem
+        this.setState = (editCarItem)
     }
 
     render() {
@@ -56,20 +75,54 @@ export default class SingleCar extends Component {
             <div>
                 <h1 className="App">Single Car</h1>
                 <div>
-                    <Link to={`/car/${carId}/edit`}><div>{this.state.make}</div></Link>
+                    <div>{this.state.make}</div>
 
                     <div>{this.state.model}</div>
                     <div>{this.state.bodyType}</div>
                     <div>{this.state.year}</div>
                     <div>{this.state.price}</div>
-                    <form onSubmit = {this.onSubmit}>
-                    <input
-                        type="text"
-                        name="make"
-                        value={this.state.make}
-                        onChange={this.onChange}/>
-                        <input type = "submit" value="Edit"/>
-                </form>
+                    <div>
+                    <button onClick={this.toggleEditForm}>Edit</button>
+
+                        <form onSubmit={this.onSubmit}>
+                            <input
+                                type="text"
+                                name="make"
+                                value={this.state.make}
+                                onChange={this.onChange} />
+
+                            <input
+                                type="text"
+                                name="model"
+                                value={this.state.model}
+                                onChange={this.onChange} />
+
+                            <input
+                                type="text"
+                                name="bodyType"
+                                value={this.state.bodyType}
+                                onChange={this.onChange} />
+
+                            <input
+                                type="text"
+                                name="year"
+                                value={this.state.year}
+                                onChange={this.onChange} />
+
+                            <input
+                                type="number"
+                                name="price"
+                                value={this.state.price}
+                                onChange={this.onChange} />
+
+
+                            <input type="submit" value="Update" />
+                        </form>
+
+                        <button onClick={this.onDelete}>Delete</button>
+                        
+
+                    </div>
 
 
 
