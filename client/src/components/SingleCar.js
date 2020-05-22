@@ -23,7 +23,7 @@ export default class SingleCar extends Component {
         this.setState(res.data)
     }
     
-    render(props) {
+    render() {
 
         return (
             <div>
