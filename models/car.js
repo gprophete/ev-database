@@ -26,7 +26,7 @@ function createCar(carData) {
 }
 //Update a car
 function updateCar(carId, carData) {
-    CarModel.findByIdAndUpdate(carId, carData)
+    return CarModel.findByIdAndUpdate(carId, carData)
 }
 //Delete a car
 function deleteCar(carId) {

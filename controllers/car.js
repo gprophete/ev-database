@@ -39,6 +39,8 @@ carRouter.post('/', async (req, res) => {
 
 // UPDATE
 carRouter.put('/:carId', async (req, res) => {
+    console.log("carId", req.params.carId)
+    console.log("carData", req.body)
     try {
         await carModel.updateCar(req.params.carId, req.body)
         res.json("ok")
