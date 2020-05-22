@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 
 export default class Cars extends Component {
     state = {
@@ -92,11 +93,11 @@ export default class Cars extends Component {
                         <input type="submit" value="Create new car"/>
                 </form>
 
-             {this.state.allCars.map((car, index)=>{
+             {this.state.allCars.map((car)=>{
                  return(
                      <div>
                          <h2>EV</h2>
-                         <div>{car.make}</div>
+                         <Link to={`/car/${car._id}`}><div>{car.make}</div></Link>
                          <div>{car.model}</div>
                          <div>{car.bodyType}</div>
                          <div>{car.year}</div>
