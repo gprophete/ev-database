@@ -5,7 +5,7 @@ const FeatureSchema = new mongoose.Schema({
     battery: String,
     range: String,
     safety: String,
-    topspeed: String,
+    topSpeed: String,
 })
 
 const FeatureModel = mongoose.model('feature', FeatureSchema)
@@ -25,7 +25,7 @@ function createFeature(featureData) {
 }
 //Update a feature
 function updateFeature(featureId, featureData) {
-    FeatureModel.findByIdAndUpdate(featureId, featureData)
+    return FeatureModel.findByIdAndUpdate(featureId, featureData)
 }
 //Delete a feature
 function deleteFeature(featureId) {

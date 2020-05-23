@@ -22,7 +22,7 @@ function createCategory(categoryData) {
 }
 //Update a category
 function updateCategory(categoryId, categoryData) {
-    CategoryModel.findByIdAndUpdate(categoryId, categoryData)
+    return CategoryModel.findByIdAndUpdate(categoryId, categoryData)
 }
 //Delete a category
 function deleteCategory(categoryId) {

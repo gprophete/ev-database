@@ -6,6 +6,8 @@ import Home from './components/Home.js'
 import SingleCar from './components/SingleCar.js'
 import NavBar from './components/NavBar.js'
 import EditCar from './components/EditCar.js'
+import Features from './components/Features.js'
+import SingleFeature from './components/SingleFeature.js'
 
 export default class App extends React.Component {
   render() {
@@ -23,6 +25,8 @@ export default class App extends React.Component {
             </Route>
             <Route exact path="/car/:carId" component={SingleCar}/>
             <Route exact path="/car/:carId/edit" component={EditCar}/>
+            <Route exact path="/features" component={Features}/>
+            <Route exact path="/feature/:featureId" component={SingleFeature}/>
 
           </Switch>
         </Router>

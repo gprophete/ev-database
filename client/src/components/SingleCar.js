@@ -70,7 +70,7 @@ export default class SingleCar extends Component {
     }
 
     render() {
-        const carId = this.props.match.params.carId
+        // const carId = this.props.match.params.carId
         return (
             <div>
                 <h1 className="App">Single Car</h1>

@@ -4,6 +4,7 @@ const BenefitSchema = new mongoose.Schema({
 
    maintenanceCost: String,
    savings: String,
+   
 })
 
 const BenefitModel = mongoose.model('benefit', BenefitSchema)
@@ -23,7 +24,7 @@ function createBenefit(benefitData) {
 }
 //Update a benefit
 function updateBenefit(benefitId, benefitData) {
-    BenefitModel.findByIdAndUpdate(benefitId, benefitData)
+    return BenefitModel.findByIdAndUpdate(benefitId, benefitData)
 }
 //Delete a benefit
 function deleteBenefit(benefitId) {
