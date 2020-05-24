@@ -14,7 +14,7 @@ import SingleBenefit from './components/SingleBenefit.js'
 export default class App extends React.Component {
   render() {
     return (
-      <div className="App">
+      <div className="App" className="back-img">
        
         <Router>
           <NavBar/>

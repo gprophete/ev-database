@@ -3,6 +3,7 @@ import App from '../App.css'
 import axios from 'axios'
 import Cars from './Cars.js'
 import { Link } from 'react-router-dom'
+import style from './style.css'
 
 export default class SingleCar extends Component {
 
@@ -52,7 +53,7 @@ export default class SingleCar extends Component {
 
     }
 
-    onDelete = async ()=>{
+    onDelete = async () => {
         try {
             const carId = this.props.match.params.carId
             await axios.delete(`/api/car/${carId}`, this.state)
@@ -73,16 +74,19 @@ export default class SingleCar extends Component {
         // const carId = this.props.match.params.carId
         return (
             <div>
-                <h1 className="App">Single Car</h1>
-                <div>
+                <h1 className="App" >Single Car</h1>
+                <div >
+                    <div className="container">
                     <div>{this.state.make}</div>
-
                     <div>{this.state.model}</div>
                     <div>{this.state.bodyType}</div>
                     <div>{this.state.year}</div>
-                    <div>{this.state.price}</div>
+                    <div>${this.state.price}</div>
+                    </div>
+
                     <div>
-                    <button onClick={this.toggleEditForm}>Edit</button>
+
+                        <button onClick={this.toggleEditForm}>Edit</button>
 
                         <form onSubmit={this.onSubmit}>
                             <input
@@ -120,7 +124,7 @@ export default class SingleCar extends Component {
                         </form>
 
                         <button onClick={this.onDelete}>Delete</button>
-                        
+
 
                     </div>
 

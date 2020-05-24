@@ -1,7 +1,16 @@
 .App {
   text-align: center;
+  color: white
+  
 }
+.back-img{
+  /* background-image: url(./images/ev-background_Fotor.png); */
+  background-size: 100%;
+  height: 1000px;
+  background-color: rgb(106, 118, 139);
+  
 
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

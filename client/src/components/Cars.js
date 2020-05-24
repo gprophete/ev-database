@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom'
+import App from '../App.css'
 
 export default class Cars extends Component {
     state = {
@@ -12,7 +13,7 @@ export default class Cars extends Component {
             price: 0
         },
         allCars: [],
-        formView: true,
+        formView: false,
 
     }
 
@@ -63,23 +64,24 @@ export default class Cars extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Welcome </h1>
+            <div className = 'App'>
+                <h2>Electric Vehicle Database</h2>
                 {this.state.allCars.map((car) => {
                     return (
-                        <div>
-                            <h2>EV</h2>
-                            <Link to={`/car/${car._id}`}><div>{car.make}</div></Link>
-                            <div>{car.model}</div>
-                            <div>{car.bodyType}</div>
-                            <div>{car.year}</div>
-                            <div>${car.price}</div>
+                        <div className="container">
+                            
+                                <Link to={`/car/${car._id}`}><div>{car.make}</div></Link>
+                                <div>{car.model}</div>
+                                <div>{car.bodyType}</div>
+                                <div>{car.year}</div>
+                                <div>${car.price}</div>
+                        
                         </div>
                     )
                 })}
                 <div>
                     <button onClick={this.toggleView}>
-                        {this.state.formView === true ?'hide' : 'click to add car'} </button>
+                        {this.state.formView === true ? 'hide' : 'click to add car'} </button>
                     {this.state.formView === true
                         ? <form onSubmit={this.onSubmit}>
                             <label>Make</label>
