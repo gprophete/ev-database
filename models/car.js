@@ -5,7 +5,7 @@ const CarSchema = new mongoose.Schema({
     make: String,
     model: String,
     bodyType: String,
-    year: Date,
+    year: String,
     price: Number
 })
 

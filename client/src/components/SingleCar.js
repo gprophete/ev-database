@@ -11,7 +11,7 @@ export default class SingleCar extends Component {
             make: '',
             model: '',
             bodyType: '',
-            year: new Date(),
+            year: '',
             price: 0,
         },
         editCarItem: true,

@@ -8,14 +8,16 @@ export default class Cars extends Component {
             make: '',
             model: '',
             bodyType: '',
-            year: Date,
+            year: '',
             price: 0
         },
-        allCars: []
+        allCars: [],
+        formView: true,
+
     }
-    
+
     componentDidMount() {
-       this.getAllCars()
+        this.getAllCars()
     }
 
 
@@ -25,87 +27,100 @@ export default class Cars extends Component {
             const newState = { ...this.state }
             newState.allCars = res.data
             this.setState(newState)
-        }catch (error) {
+        } catch (error) {
             console.log('Failed to get all cars')
             console.log(error)
         }
     }
 
-    onChange = (evt) =>{
-        const newState= {...this.state}
+    onChange = (evt) => {
+        const newState = { ...this.state }
         newState.newCar[evt.target.name] = evt.target.value
         this.setState(newState)
     }
 
-    onSubmit = async (evt) =>{
+    onSubmit = async (evt) => {
         evt.preventDefault()
-        try{
+        try {
             await axios.post("/api/car", this.state.newCar)
             this.getAllCars()
-        }catch (error) {
+        } catch (error) {
             console.log("Failed to create new car")
             console.log(error)
-            
+
         }
 
     }
-    
-    
+
+    toggleView = () => {
+        const formView = !this.state.formView
+        this.setState({ formView: formView })
+        console.log('formView', formView)
+    }
+
+
 
 
     render() {
         return (
             <div>
                 <h1>Welcome </h1>
+                {this.state.allCars.map((car) => {
+                    return (
+                        <div>
+                            <h2>EV</h2>
+                            <Link to={`/car/${car._id}`}><div>{car.make}</div></Link>
+                            <div>{car.model}</div>
+                            <div>{car.bodyType}</div>
+                            <div>{car.year}</div>
+                            <div>${car.price}</div>
+                        </div>
+                    )
+                })}
+                <div>
+                    <button onClick={this.toggleView}>
+                        {this.state.formView === true ?'hide' : 'click to add car'} </button>
+                    {this.state.formView === true
+                        ? <form onSubmit={this.onSubmit}>
+                            <label>Make</label>
+                            <input
+                                type="text"
+                                name="make"
+                                value={this.state.newCar.make}
+                                onChange={this.onChange} />
+                            <label>Model</label>
+                            <input
+                                type="text"
+                                name="model"
+                                value={this.state.newCar.model}
+                                onChange={this.onChange} />
 
-                <form onSubmit={this.onSubmit}>
-                    <label>Make</label>
-                    <input
-                        type="text"
-                        name="make"
-                        value={this.state.newCar.make}
-                        onChange={this.onChange}/>
-                         <label>Model</label>
-                        <input
-                        type="text"
-                        name="model"
-                        value={this.state.newCar.model}
-                        onChange={this.onChange}/>
-                        
-                         <label>Body Type</label>
-                        <input
-                        type="text"
-                        name="bodyType"
-                        value={this.state.newCar.bodyType}
-                        onChange={this.onChange}/>
-                         <label>Year</label>
-                        <input
-                        type="text"
-                        name="year"
-                        // value={this.state.newCar.year}
-                        onChange={this.onChange}/>
-                         <label>Price</label>
-                         <input
-                        type="number"
-                        name="price"
-                        value={this.state.newCar.price}
-                        onChange={this.onChange}/>
+                            <label>Body Type</label>
+                            <input
+                                type="text"
+                                name="bodyType"
+                                value={this.state.newCar.bodyType}
+                                onChange={this.onChange} />
+                            <label>Year</label>
+                            <input
+                                type="text"
+                                name="year"
+                                // value={this.state.newCar.year}
+                                onChange={this.onChange} />
+                            <label>Price</label>
+                            <input
+                                type="number"
+                                name="price"
+                                value={this.state.newCar.price}
+                                onChange={this.onChange} />
 
-                        <input type="submit" value="Create new car"/>
-                </form>
+                            <input type="submit" value="Create new car" />
+                        </form>
+                        : null
+                    }
 
-             {this.state.allCars.map((car)=>{
-                 return(
-                     <div>
-                         <h2>EV</h2>
-                         <Link to={`/car/${car._id}`}><div>{car.make}</div></Link>
-                         <div>{car.model}</div>
-                         <div>{car.bodyType}</div>
-                         <div>{car.year}</div>
-                         <div>{car.price}</div>
-                     </div>
-                 )
-             })}
+                </div>
+
 
             </div>
         )
