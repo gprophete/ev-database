@@ -2,8 +2,8 @@ const mongoose = require ('../db/connection.js')
 
 const BenefitSchema = new mongoose.Schema({
 
-   maintenanceCost: String,
-   savings: String,
+   maintenanceCost: Number,
+   savings: Number,
    
 })
 

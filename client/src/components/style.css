@@ -39,11 +39,29 @@ nav {
   
 
   }
+  .feature-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 10px;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 40px;
+    color:rgb(255, 194, 27);
+
+
+  }
+  .feature-container a{
+    text-decoration: none;
+    color:rgb(255, 194, 27);
+
+  }
   .container a {
     text-decoration: none;
     color: rgb(255, 194, 27);
 
   }
+  
   
   
   .backgroundHome{
@@ -67,7 +85,8 @@ nav {
     font-size: 30px;
     cursor: pointer;
     border: rgb(255, 255, 252);
-    border-radius: 100%
+    border-radius: 100%;
+    margin: 40px
   }
   .btn:hover{
     background-color: rgb(63, 46, 207);
@@ -101,7 +120,7 @@ nav {
   }
   .delete-btn {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-content: center;
-    margin-top: 20px
+    margin: 30px
   }

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
 
 
+
 export default class SingleFeature extends Component {
 
     state = {
@@ -82,7 +83,7 @@ export default class SingleFeature extends Component {
 
     render() {
         if (this.state.redirect) {
-            return (<Redirect to="/cars" />)
+            return (<Redirect to="/features" />)
         }
         return (
             <div>
@@ -97,7 +98,9 @@ export default class SingleFeature extends Component {
                     <div>
 
                         {this.state.formView === true ? null
-                            : <button onClick={this.toggleView}>Edit</button>}
+                            : <button onClick={this.toggleView} className="btn">
+                                <i class="fas fa-edit"></i>
+                            </button>}
 
                         {this.state.formView === true
                             ? <form onSubmit={this.onSubmit}>
@@ -130,7 +133,7 @@ export default class SingleFeature extends Component {
                             </form>
                             : null
                         }
-                        <button onClick={this.onDelete}>Delete</button>
+                        <button className="delete-btn" onClick={this.onDelete}><i class="fas fa-trash-alt"></i></button>
 
 
                     </div>

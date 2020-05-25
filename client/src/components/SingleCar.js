@@ -16,14 +16,14 @@ export default class SingleCar extends Component {
             bodyType: '',
             year: '',
             price: 0,
-            newFeature: {
-                battery: '',
-                range: '',
-                safety: '',
-                topSpeed: '',
+            // newFeature: {
+            //     battery: '',
+            //     range: '',
+            //     safety: '',
+            //     topSpeed: '',
                 
-            },
-            feature: [],
+            // },
+            // feature: [],
         },
         editCarItem: false,
         redirect: false,
@@ -153,11 +153,13 @@ export default class SingleCar extends Component {
                                     onChange={this.onChange} />
 
 
-                                <input type="submit" value="Update" />
+                                <input type="submit" value="Update"/>
                             </form>
                             : null
                         }
-                        <button className="delete-btn" onClick={this.onDelete}><i class="fas fa-trash-alt"></i></button>
+                        <button className="delete-btn" onClick={this.onDelete}>
+                            <i class="fas fa-trash-alt"></i>
+                            </button>
 
 
                     </div>

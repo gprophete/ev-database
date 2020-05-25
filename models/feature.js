@@ -8,7 +8,6 @@ const FeatureSchema = new mongoose.Schema({
 
     battery: String,
     range: String,
-    safety: String,
     topSpeed: String,
 })
 

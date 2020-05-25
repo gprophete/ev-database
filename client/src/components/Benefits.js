@@ -8,7 +8,8 @@ export default class Benefits extends Component {
             maintenanceCost: '',
             savings: '',
         },
-        allBenefits: []
+        allBenefits: [],
+        formView: false
     }
 
     componentDidMount() {
@@ -46,6 +47,12 @@ export default class Benefits extends Component {
         }
 
     }
+    toggleView = () => {
+        const formView = !this.state.formView
+        this.setState({ formView: formView })
+        console.log('formView', formView)
+    }
+
 
 
 
@@ -53,9 +60,25 @@ export default class Benefits extends Component {
     render() {
         return (
             <div>
-                <h1> EV Benefits </h1>
-
-                <form onSubmit={this.onSubmit}>
+                <h1 className="App"> EV Benefits </h1>
+                {this.state.allBenefits.map((benefit) => {
+                    return (
+                        <div className= "container">
+                            
+                            <Link to={`/benefit/${benefit._id}`}>
+                                <div>{benefit.maintenanceCost}/year</div></Link>
+                            <div>{benefit.savings}/year</div>
+                            
+                        </div>
+                    )
+                })}
+                <div>
+                {this.state.formView === true ? null :
+                        <button onClick={this.toggleView} className="btn">
+                            <i class="fas fa-mouse"></i>
+                        </button>}
+                        {this.state.formView === true  
+                ?<form onSubmit={this.onSubmit}>
                     <label>Maintenance Cost</label>
                     <input
                         type="text"
@@ -72,17 +95,9 @@ export default class Benefits extends Component {
 
                     <input type="submit" value="Create new benefit" />
                 </form>
-
-                {this.state.allBenefits.map((benefit) => {
-                    return (
-                        <div>
-                            <h2>EV</h2>
-                            <Link to={`/benefit/${benefit._id}`}><div>{benefit.maintenanceCost}</div></Link>
-                            <div>{benefit.savings}</div>
-                            
-                        </div>
-                    )
-                })}
+                :null
+}
+                </div>
 
             </div>
         )

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom'
-import App from '../App.css'
 import { Redirect } from 'react-router-dom'
+
 
 export default class Cars extends Component {
     state = {
@@ -123,7 +123,7 @@ export default class Cars extends Component {
                                 value={this.state.newCar.price}
                                 onChange={this.onChange} />
 
-                            <input className="input-item" type="submit" value="Create new car" onClick={this.toggleView}/>
+                            <input className="input-item" type="submit" value="Create new car"/>
                         </form>
                         : null
                     }
