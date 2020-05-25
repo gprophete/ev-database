@@ -67,18 +67,18 @@ export default class Cars extends Component {
         
         return (
             <div className='App'>
-                <h2>Electric Vehicle Database</h2>
+                <h1>Electric Vehicle Database</h1>
                 {this.state.allCars.map((car) => {
                     return (
                         <div className="container">
 
                             <Link to={`/car/${car._id}`}>
-                                <div className="container-item">{car.make}</div>
+                                <div>{car.make}</div>
                             </Link>
-                            <div className="container-item">{car.model}</div>
-                            <div className="container-item">{car.bodyType}</div>
-                            <div className="container-item">{car.year}</div>
-                            <div className="container-item">${car.price}</div>
+                            <div>{car.model}</div>
+                            <div>{car.bodyType}</div>
+                            <div>{car.year}</div>
+                            <div>${car.price}</div>
 
                         </div>
                     )

@@ -113,7 +113,7 @@ export default class SingleCar extends Component {
 
                     <div>
                         {this.state.editCarItem === true ? null
-                            : <button onClick={this.toggleEditForm}>
+                            : <button onClick={this.toggleEditForm} className="btn">
                                <i class="fas fa-edit"></i>
                             </button>}
 
@@ -157,7 +157,7 @@ export default class SingleCar extends Component {
                             </form>
                             : null
                         }
-                        <button onClick={this.onDelete}><i class="fas fa-trash-alt"></i></button>
+                        <button className="delete-btn" onClick={this.onDelete}><i class="fas fa-trash-alt"></i></button>
 
 
                     </div>

@@ -16,6 +16,13 @@ nav {
     height: 0;
   }
 
+  h1 {
+    font-family: 'PT Sans Narrow', sans-serif;
+    color: darkred;
+    font-size: 50px;
+    margin-bottom: 50px;
+  }
+
   
   .container{
       width:100%;
@@ -37,12 +44,7 @@ nav {
     color: rgb(255, 194, 27);
 
   }
-  .container-item{
-    border: black;
-    margin: 60px;
-    
-
-  }
+  
   
   .backgroundHome{
     background-image: url('../images/car-3075497_1920.png');
@@ -83,7 +85,7 @@ nav {
     border-radius: 10%;
     margin: 10px;
     font-family: 'PT Sans Narrow', sans-serif;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 50px;
   }
 
@@ -96,4 +98,10 @@ nav {
     font-size: 12px;
     font-weight: 50px;
     color: rgb(238, 140, 12)
+  }
+  .delete-btn {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 20px
   }
