@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom'
 import App from '../App.css'
+import { Redirect } from 'react-router-dom'
 
 export default class Cars extends Component {
     state = {
@@ -50,7 +51,7 @@ export default class Cars extends Component {
             console.log(error)
 
         }
-
+        
     }
 
     toggleView = () => {
@@ -63,6 +64,7 @@ export default class Cars extends Component {
 
 
     render() {
+        
         return (
             <div className='App'>
                 <h2>Electric Vehicle Database</h2>
@@ -70,20 +72,22 @@ export default class Cars extends Component {
                     return (
                         <div className="container">
 
-                            <Link to={`/car/${car._id}`}><div>{car.make}</div></Link>
-                            <div>{car.model}</div>
-                            <div>{car.bodyType}</div>
-                            <div>{car.year}</div>
-                            <div>${car.price}</div>
+                            <Link to={`/car/${car._id}`}>
+                                <div className="container-item">{car.make}</div>
+                            </Link>
+                            <div className="container-item">{car.model}</div>
+                            <div className="container-item">{car.bodyType}</div>
+                            <div className="container-item">{car.year}</div>
+                            <div className="container-item">${car.price}</div>
 
                         </div>
                     )
                 })}
                 <div>
-                    {this.state.formView === true ? 'hide' :
-                        <button onClick={this.toggleView}>
-                            <i class="fas fa-plus-square"></i>
-                         </button>}
+                    {this.state.formView === true ? null :
+                        <button onClick={this.toggleView} className="btn">
+                            <i class="fas fa-mouse"></i>
+                        </button>}
 
                     {this.state.formView === true
                         ? <form onSubmit={this.onSubmit}>
@@ -119,7 +123,7 @@ export default class Cars extends Component {
                                 value={this.state.newCar.price}
                                 onChange={this.onChange} />
 
-                            <input type="submit" value="Create new car" />
+                            <input className="input-item" type="submit" value="Create new car" onClick={this.toggleView}/>
                         </form>
                         : null
                     }
