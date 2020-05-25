@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 export default class Benefits extends Component {
     state = {
         newBenefit: {
+            car: '',
             maintenanceCost: '',
             savings: '',
         },
@@ -63,40 +64,47 @@ export default class Benefits extends Component {
                 <h1 className="App"> EV Benefits </h1>
                 {this.state.allBenefits.map((benefit) => {
                     return (
-                        <div className= "container">
-                            
+                        <div className="container">
+
                             <Link to={`/benefit/${benefit._id}`}>
-                                <div>{benefit.maintenanceCost}/year</div></Link>
+                                <div>{benefit.car}</div></Link>
+                                <div>{benefit.maintenanceCost}/year</div>
                             <div>{benefit.savings}/year</div>
-                            
+
                         </div>
                     )
                 })}
                 <div>
-                {this.state.formView === true ? null :
+                    {this.state.formView === true ? null :
                         <button onClick={this.toggleView} className="btn">
                             <i class="fas fa-mouse"></i>
                         </button>}
-                        {this.state.formView === true  
-                ?<form onSubmit={this.onSubmit}>
-                    <label>Maintenance Cost</label>
-                    <input
-                        type="text"
-                        name="maintenanceCost"
-                        value={this.state.newBenefit.maintenancecost}
-                        onChange={this.onChange} />
-                    <label>Savings</label>
-                    <input
-                        type="text"
-                        name="savings"
-                        value={this.state.newBenefit.savings}
-                        onChange={this.onChange} />
+                    {this.state.formView === true
+                        ? <form onSubmit={this.onSubmit}>
+                             <label>Car</label>
+                            <input
+                                type="text"
+                                name="car"
+                                value={this.state.newBenefit.car}
+                                onChange={this.onChange} />
+                            <label>Maintenance Cost</label>
+                            <input
+                                type="text"
+                                name="maintenanceCost"
+                                value={this.state.newBenefit.maintenancecost}
+                                onChange={this.onChange} />
+                            <label>Savings</label>
+                            <input
+                                type="text"
+                                name="savings"
+                                value={this.state.newBenefit.savings}
+                                onChange={this.onChange} />
 
 
-                    <input type="submit" value="Create new benefit" />
-                </form>
-                :null
-}
+                            <input type="submit" value="Create new benefit" />
+                        </form>
+                        : null
+                    }
                 </div>
 
             </div>

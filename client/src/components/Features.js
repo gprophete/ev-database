@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 export default class Features extends Component {
     state = {
         newFeature: {
+            car: '',
             battery: '',
             range: '',
             topSpeed: '',
@@ -69,12 +70,13 @@ export default class Features extends Component {
                     return (
                         <div className="feature-container">
 
-                            <Link to={`/feature/${feature._id}`}>
-                                <div>{feature.battery}</div>
+                            <Link to={`/feature/${feature._id}`} >
+                                <div>{feature.car}</div>
                             </Link>
+                            <div>{feature.battery}</div>
                             <div>{feature.range}</div>
                             <div>{feature.topSpeed}</div>
-
+                            
                         </div>
                     )
                 })}
@@ -86,17 +88,23 @@ export default class Features extends Component {
 
                     {this.state.formView === true
                         ? <form onSubmit={this.onSubmit}>
+                            <label>Car</label>
+                            <input
+                                type="text"
+                                name="car"
+                                value={this.state.newFeature.car}
+                                onChange={this.onChange} />
                             <label>Battery</label>
                             <input
                                 type="text"
                                 name="Battery"
-                                value={this.state.newFeature.make}
+                                value={this.state.newFeature.battery}
                                 onChange={this.onChange} />
                             <label>Range</label>
                             <input
                                 type="text"
                                 name="range"
-                                value={this.state.newFeature.model}
+                                value={this.state.newFeature.range}
                                 onChange={this.onChange} />
 
                             <label>Top Speed</label>

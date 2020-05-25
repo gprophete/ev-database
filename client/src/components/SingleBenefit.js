@@ -9,6 +9,7 @@ export default class SingleBenefit extends Component {
 
     state = {
         singleBenefit: {
+            car:'',
             maintenanceCost: 0,
             savings: 0,
         },
@@ -94,6 +95,11 @@ export default class SingleBenefit extends Component {
 
                         {this.state.formView === true
                             ?<form onSubmit={this.onSubmit}>
+                                 <input
+                                    type="text"
+                                    name="car"
+                                    value={this.state.car}
+                                    onChange={this.onChange} />
                                 <input
                                     type="number"
                                     name="maintenanceCost"

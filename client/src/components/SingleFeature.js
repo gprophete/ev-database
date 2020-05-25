@@ -11,6 +11,7 @@ export default class SingleFeature extends Component {
 
     state = {
         singleFeature: {
+            car: '',
             battery: '',
             range: '',
             safety: '',
@@ -104,6 +105,12 @@ export default class SingleFeature extends Component {
 
                         {this.state.formView === true
                             ? <form onSubmit={this.onSubmit}>
+                                
+                                <input
+                                type="text"
+                                name="car"
+                                value={this.state.car}
+                                onChange={this.onChange} />
                                 <input
                                     type="text"
                                     name="battery"

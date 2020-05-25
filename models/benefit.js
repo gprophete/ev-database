@@ -1,10 +1,11 @@
-const mongoose = require ('../db/connection.js')
+const mongoose = require('../db/connection.js')
 
 const BenefitSchema = new mongoose.Schema({
 
-   maintenanceCost: Number,
-   savings: Number,
-   
+    car: String,
+    maintenanceCost: Number,
+    savings: Number,
+
 })
 
 const BenefitModel = mongoose.model('benefit', BenefitSchema)
@@ -31,7 +32,7 @@ function deleteBenefit(benefitId) {
     return BenefitModel.findByIdAndDelete(benefitId)
 }
 
-module.exports= {
+module.exports = {
     getAllBenefits,
     getBenefitById,
     createBenefit,

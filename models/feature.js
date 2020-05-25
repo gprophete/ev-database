@@ -2,10 +2,8 @@ const mongoose = require ('../db/connection.js')
 
 const FeatureSchema = new mongoose.Schema({
     
-    // parentId:{
-    //     feature:String,
-    // },
-
+    
+    car: String,
     battery: String,
     range: String,
     topSpeed: String,
