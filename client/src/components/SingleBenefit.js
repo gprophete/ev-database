@@ -9,7 +9,7 @@ export default class SingleBenefit extends Component {
 
     state = {
         singleBenefit: {
-            car:'',
+            car: '',
             maintenanceCost: 0,
             savings: 0,
         },
@@ -81,21 +81,22 @@ export default class SingleBenefit extends Component {
                 <h1 className="App">Single Benefit</h1>
                 <div className="feature-container">
 
+                    <div>{this.state.car}</div>
                     <label>Maintenance Cost:</label>
                     <div>{this.state.maintenanceCost}/year</div>
                     <label>Savings:</label>
                     <div>{this.state.savings}/year</div>
 
                     <div>
-                        {this.state.formView === true ? null 
-                        :<button onClick={this.toggleView}> 
-                        <i class="fas fa-edit"></i>
-                        </button> }
-                        
+                        {this.state.formView === true ? null
+                            : <button onClick={this.toggleView}>
+                                <i class="fas fa-edit"></i>
+                            </button>}
+
 
                         {this.state.formView === true
-                            ?<form onSubmit={this.onSubmit}>
-                                 <input
+                            ? <form onSubmit={this.onSubmit}>
+                                <input
                                     type="text"
                                     name="car"
                                     value={this.state.car}
@@ -119,8 +120,8 @@ export default class SingleBenefit extends Component {
 
                     </div>
                     <button className="delete-btn" onClick={this.onDelete}>
-                            <i class="fas fa-trash-alt"></i>
-                            </button>
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
 
 
 
