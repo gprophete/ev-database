@@ -1,6 +1,7 @@
 const express = require('express')
 
 const carModel = require('../models/car.js')
+// const featureModel = require ('../models/feature.js')
 
 const carRouter = express.Router()
 
@@ -19,6 +20,7 @@ carRouter.get('/', async (req, res) => {
 carRouter.get('/:carId', async (req, res) => {
     try {
         const car = await carModel.getCarById(req.params.carId)
+        // const featureByCarId = await featureModel.getFeatureByCarId(req.params.carId)
         res.json(car)
     } catch (error) {
         res.json(error)

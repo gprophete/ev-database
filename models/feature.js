@@ -1,6 +1,10 @@
 const mongoose = require ('../db/connection.js')
 
 const FeatureSchema = new mongoose.Schema({
+    
+    // parentId:{
+    //     feature:String,
+    // },
 
     battery: String,
     range: String,
@@ -19,6 +23,11 @@ function getAllFeatures() {
 function getFeatureById(featureId) {
     return FeatureModel.findById(featureId)
 }
+
+//Get feature by CarID
+// function getFeatureByCarId(parentId){
+//     return FeatureModel.find({parentId})
+// }
 //Create a feature
 function createFeature(featureData) {
     return FeatureModel.create(featureData)
@@ -35,6 +44,7 @@ function deleteFeature(featureId) {
 module.exports= {
     getAllFeatures,
     getFeatureById,
+    // getFeatureByCarId,
     createFeature,
     updateFeature,
     deleteFeature

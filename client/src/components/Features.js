@@ -10,7 +10,8 @@ export default class Features extends Component {
             safety: '',
             topSpeed: '',
         },
-        allFeatures: []
+        allFeatures: [],
+        formView: false
     }
 
     componentDidMount() {
@@ -48,6 +49,11 @@ export default class Features extends Component {
         }
 
     }
+    toggleView = () => {
+        const formView = !this.state.formView
+        this.setState({ formView: formView })
+        console.log('formView', formView)
+    }
 
 
 
@@ -56,41 +62,9 @@ export default class Features extends Component {
         return (
             <div>
                 <h1> EV Features </h1>
-
-                <form onSubmit={this.onSubmit}>
-                    <label>Battery</label>
-                    <input
-                        type="text"
-                        name="battery"
-                        value={this.state.newFeature.battery}
-                        onChange={this.onChange} />
-                    <label>Range</label>
-                    <input
-                        type="text"
-                        name="range"
-                        value={this.state.newFeature.range}
-                        onChange={this.onChange} />
-
-                    <label>Safety</label>
-                    <input
-                        type="text"
-                        name="safety"
-                        value={this.state.newFeature.safety}
-                        onChange={this.onChange} />
-                    <label>Top Speed</label>
-                    <input
-                        type="text"
-                        name="topSpeed"
-                        // value={this.state.newFeature.topSpeed}
-                        onChange={this.onChange} />
-
-                    <input type="submit" value="Create new feature" />
-                </form>
-
                 {this.state.allFeatures.map((feature) => {
                     return (
-                        <div>
-                            <h2>EV</h2>
+                        <div className="container">
                             <Link to={`/feature/${feature._id}`}><div>{feature.battery}</div></Link>
                             <div>{feature.range}</div>
                             <div>{feature.safety}</div>
@@ -98,6 +72,43 @@ export default class Features extends Component {
                         </div>
                     )
                 })}
+                {this.state.formView === true ? null : <button onClick={this.toggleView}>
+                    Edit
+                    </button>}
+                
+                {this.state.formView === true
+                    ? <form onSubmit={this.onSubmit}>
+                        <label>Battery</label>
+                        <input
+                            type="text"
+                            name="battery"
+                            value={this.state.newFeature.battery}
+                            onChange={this.onChange} />
+                        <label>Range</label>
+                        <input
+                            type="text"
+                            name="range"
+                            value={this.state.newFeature.range}
+                            onChange={this.onChange} />
+
+                        <label>Safety</label>
+                        <input
+                            type="text"
+                            name="safety"
+                            value={this.state.newFeature.safety}
+                            onChange={this.onChange} />
+                        <label>Top Speed</label>
+                        <input
+                            type="text"
+                            name="topSpeed"
+                            // value={this.state.newFeature.topSpeed}
+                            onChange={this.onChange} />
+
+                        <input type="submit" value="Create new feature" />
+                    </form>
+                    : null
+                }
+
 
             </div>
         )

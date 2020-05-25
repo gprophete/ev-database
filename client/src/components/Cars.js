@@ -64,24 +64,27 @@ export default class Cars extends Component {
 
     render() {
         return (
-            <div className = 'App'>
+            <div className='App'>
                 <h2>Electric Vehicle Database</h2>
                 {this.state.allCars.map((car) => {
                     return (
                         <div className="container">
-                            
-                                <Link to={`/car/${car._id}`}><div>{car.make}</div></Link>
-                                <div>{car.model}</div>
-                                <div>{car.bodyType}</div>
-                                <div>{car.year}</div>
-                                <div>${car.price}</div>
-                        
+
+                            <Link to={`/car/${car._id}`}><div>{car.make}</div></Link>
+                            <div>{car.model}</div>
+                            <div>{car.bodyType}</div>
+                            <div>{car.year}</div>
+                            <div>${car.price}</div>
+
                         </div>
                     )
                 })}
                 <div>
-                    <button onClick={this.toggleView}>
-                        {this.state.formView === true ? 'hide' : 'click to add car'} </button>
+                    {this.state.formView === true ? 'hide' :
+                        <button onClick={this.toggleView}>
+                            <i class="fas fa-plus-square"></i>
+                         </button>}
+
                     {this.state.formView === true
                         ? <form onSubmit={this.onSubmit}>
                             <label>Make</label>

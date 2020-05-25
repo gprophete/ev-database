@@ -9,6 +9,7 @@ const benefitRouter = require('./controllers/benefit.js')
 
 app.use(express.json())
 app.use(express.static(`${__dirname}/client/build`))
+app.use(express.urlencoded())
 
 app.use('/api/car', carRouter)
 

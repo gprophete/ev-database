@@ -3,6 +3,8 @@ import App from '../App.css'
 import axios from 'axios'
 import Features from './Features.js'
 import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
+
 
 export default class SingleFeature extends Component {
 
@@ -13,8 +15,8 @@ export default class SingleFeature extends Component {
             safety: '',
             topSpeed: '',
         },
-        editFeatureItem: true,
-        redirect: true,
+        formView: false,
+        redirect: false,
     }
     componentDidMount() {
         this.getFeatureById()
@@ -48,10 +50,14 @@ export default class SingleFeature extends Component {
             console.log(error)
 
         }
+        const newState = { ...this.state }
+        newState.redirect = true
+        this.setState(newState)
+
 
     }
 
-    onDelete = async ()=>{
+    onDelete = async () => {
         try {
             const featureId = this.props.match.params.featureId
             await axios.delete(`/api/feature/${featureId}`, this.state)
@@ -61,57 +67,71 @@ export default class SingleFeature extends Component {
             console.log(error)
 
         }
+        const newState = { ...this.state }
+        newState.redirect = true
+        this.setState(newState)
+
 
     }
-    toggleEditForm = () => {
-        const editFeatureItem = !this.state.editFeatureItem
-        this.setState = (editFeatureItem)
+    toggleView = () => {
+        const formView = !this.state.formView
+        this.setState({ formView: formView })
+        console.log('formView', formView)
     }
+
 
     render() {
+        if (this.state.redirect) {
+            return (<Redirect to="/cars" />)
+        }
         return (
             <div>
                 <h1 className="App">Single Feature</h1>
                 <div>
-                    <div>{this.state.battery}</div>
-
-                    <div>{this.state.range}</div>
-                    <div>{this.state.safety}</div>
-                    <div>{this.state.topSpeed}</div>
+                    <div className="container">
+                        <div>{this.state.battery}</div>
+                        <div>{this.state.range}</div>
+                        <div>{this.state.safety}</div>
+                        <div>{this.state.topSpeed}</div>
+                    </div>
                     <div>
-                    <button onClick={this.toggleEditForm}>Edit</button>
 
-                        <form onSubmit={this.onSubmit}>
-                            <input
-                                type="text"
-                                name="battery"
-                                value={this.state.battery}
-                                onChange={this.onChange} />
+                        {this.state.formView === true ? null
+                            : <button onClick={this.toggleView}>Edit</button>}
 
-                            <input
-                                type="text"
-                                name="range"
-                                value={this.state.range}
-                                onChange={this.onChange} />
+                        {this.state.formView === true
+                            ? <form onSubmit={this.onSubmit}>
+                                <input
+                                    type="text"
+                                    name="battery"
+                                    value={this.state.battery}
+                                    onChange={this.onChange} />
 
-                            <input
-                                type="text"
-                                name="safety"
-                                value={this.state.safety}
-                                onChange={this.onChange} />
+                                <input
+                                    type="text"
+                                    name="range"
+                                    value={this.state.range}
+                                    onChange={this.onChange} />
 
-                            <input
-                                type="text"
-                                name="topSpeed"
-                                value={this.state.topSpeed}
-                                onChange={this.onChange} />
+                                <input
+                                    type="text"
+                                    name="safety"
+                                    value={this.state.safety}
+                                    onChange={this.onChange} />
+
+                                <input
+                                    type="text"
+                                    name="topSpeed"
+                                    value={this.state.topSpeed}
+                                    onChange={this.onChange} />
 
 
-                            <input type="submit" value="Update" />
-                        </form>
-
+                                <input type="submit" value="Update" />
+                            </form>
+                            : null
+                        }
                         <button onClick={this.onDelete}>Delete</button>
-                        
+
 
                     </div>
 
