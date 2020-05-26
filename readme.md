@@ -4,4 +4,4 @@ The fictive self-driving, using renewable energy is no longer a fiction. More pe
 ## Target User
 The web-app is designed for users who want to find information on electric vehicles without having to navigate to multiple websites.
 
-https://electric-vehicle-database.herokuapp.com/Home - automatic!
+[EV-Databse webapp](https://electric-vehicle-database.herokuapp.com)
