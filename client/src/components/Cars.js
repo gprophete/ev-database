@@ -51,7 +51,7 @@ export default class Cars extends Component {
             console.log(error)
 
         }
-        
+
     }
 
     toggleView = () => {
@@ -64,7 +64,7 @@ export default class Cars extends Component {
 
 
     render() {
-        
+
         return (
             <div className='App'>
                 <h1>Electric Vehicle Database</h1>
@@ -123,7 +123,7 @@ export default class Cars extends Component {
                                 value={this.state.newCar.price}
                                 onChange={this.onChange} />
 
-                            <input className="input-item" type="submit" value="Create new car"/>
+                            <input className="input-item" type="submit" value="Create new car" />
                         </form>
                         : null
                     }

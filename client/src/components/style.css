@@ -4,7 +4,7 @@ nav {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background-color: grey;
+    background-color: rgba(109, 230, 251, 0.829);
     padding: 0;
 }
   nav a {
@@ -32,7 +32,7 @@ nav {
       flex-wrap: wrap;
       justify-content: space-around;
       align-content: center;
-      color:rgb(255, 194, 27);
+      color:rgb(212, 97, 20);
       font-family: 'PT Sans Narrow', sans-serif;
       font-size: 40px;
       margin: 0 10px 40px 10px
@@ -47,18 +47,18 @@ nav {
     margin: 0 10px;
     font-family: 'PT Sans Narrow', sans-serif;
     font-size: 40px;
-    color:rgb(255, 194, 27);
+    color:rgb(212, 97, 20);
 
 
   }
   .feature-container a{
     text-decoration: none;
-    color:rgb(255, 194, 27);
+    color:rgb(212, 97, 20);
 
   }
   .container a {
     text-decoration: none;
-    color: rgb(255, 194, 27);
+    color: rgb(212, 97, 20);
 
   }
   
