@@ -68,8 +68,8 @@ export default class Benefits extends Component {
 
                             <Link to={`/benefit/${benefit._id}`}>
                                 <div>{benefit.car}</div></Link>
-                                <div>{benefit.maintenanceCost}/year</div>
-                            <div>{benefit.savings}/year</div>
+                                <div>${benefit.maintenanceCost}/year</div>
+                            <div>${benefit.savings}/year</div>
 
                         </div>
                     )
