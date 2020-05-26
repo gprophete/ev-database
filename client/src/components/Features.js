@@ -115,7 +115,7 @@ export default class Features extends Component {
                                 onChange={this.onChange} />
                             
 
-                            <input className="input-item" type="submit" value="Create new feature" onClick={this.toggleView}/>
+                            <input className="input-item" type="submit" value="Create new feature"/>
                         </form>
                         : null
                     }
