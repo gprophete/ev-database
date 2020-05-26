@@ -64,7 +64,9 @@ export default class SingleBenefit extends Component {
             console.log(error)
 
         }
-
+        const newState = { ...this.state }
+        newState.redirect = true
+        this.setState(newState)
     }
     toggleView = () => {
         const formView = !this.state.formView
@@ -82,10 +84,10 @@ export default class SingleBenefit extends Component {
                 <div className="feature-container">
 
                     <div>{this.state.car}</div>
-                    <label>Maintenance Cost:</label>
-                    <div>{this.state.maintenanceCost}/year</div>
-                    <label>Savings:</label>
-                    <div>{this.state.savings}/year</div>
+                    <label>Maintenance</label>
+                    <div>${this.state.maintenanceCost}/year</div>
+                    <label>Total Savings:</label>
+                    <div>${this.state.savings}/year</div>
 
                     <div>
                         {this.state.formView === true ? null

@@ -97,7 +97,7 @@ export default class Features extends Component {
                             <label>Battery</label>
                             <input
                                 type="text"
-                                name="Battery"
+                                name="battery"
                                 value={this.state.newFeature.battery}
                                 onChange={this.onChange} />
                             <label>Range</label>

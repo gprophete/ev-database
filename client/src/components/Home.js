@@ -5,10 +5,12 @@ import style from './style.css'
 export default class Home extends Component {
     render() {
         return (
-            <div className="background">
+            <div className="home-background">
                 <div>
 
-                    <h1 className="fontStyle">Welcome to EV-Database</h1>
+                    <h1  className="fontStyle">Welcome to EV-Database</h1>
+
+                  
 
                 </div>
         </div>

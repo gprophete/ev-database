@@ -4,6 +4,13 @@ Self-driving vehicle, using renewable energy is no longer a fiction. More people
 ## Target User
 The web-app is designed for users who want to find information on electric vehicles without having to navigate to multiple websites.
 
+## Technology used
+* Node 
+* Express
+* Mongoose
+* React
+* CSS
+
 ## Link to Web-App
 [EV-Databse webapp](https://electric-vehicle-database.herokuapp.com)
 

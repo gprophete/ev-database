@@ -14,7 +14,6 @@ export default class SingleFeature extends Component {
             car: '',
             battery: '',
             range: '',
-            safety: '',
             topSpeed: '',
         },
         formView: false,
@@ -91,9 +90,10 @@ export default class SingleFeature extends Component {
                 <h1 className="App">Single Feature</h1>
                 <div>
                     <div className="container">
+                        <div>{this.state.car}</div>
                         <div>{this.state.battery}</div>
                         <div>{this.state.range}</div>
-                        <div>{this.state.safety}</div>
+                        {/* <div>{this.state.safety}</div> */}
                         <div>{this.state.topSpeed}</div>
                     </div>
                     <div>
@@ -105,12 +105,12 @@ export default class SingleFeature extends Component {
 
                         {this.state.formView === true
                             ? <form onSubmit={this.onSubmit}>
-                                
+
                                 <input
-                                type="text"
-                                name="car"
-                                value={this.state.car}
-                                onChange={this.onChange} />
+                                    type="text"
+                                    name="car"
+                                    value={this.state.car}
+                                    onChange={this.onChange} />
                                 <input
                                     type="text"
                                     name="battery"
@@ -123,11 +123,11 @@ export default class SingleFeature extends Component {
                                     value={this.state.range}
                                     onChange={this.onChange} />
 
-                                <input
+                                {/* <input
                                     type="text"
                                     name="safety"
                                     value={this.state.safety}
-                                    onChange={this.onChange} />
+                                    onChange={this.onChange} /> */}
 
                                 <input
                                     type="text"

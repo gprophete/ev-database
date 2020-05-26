@@ -6,8 +6,7 @@
 
 .back-img{
   /* background-image: url(./images/030-Happy-Fisher.png); */
-  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);  
-  background-size: 100%;
+  background-image: linear-gradient(to right, #a8caba 0%, #5d4157 100%);  background-size: 100%;
   height: 1000px;
   width: 100%
   
