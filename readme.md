@@ -12,7 +12,7 @@ The web-app is designed for users who want to find information on electric vehic
 * CSS
 
 ## Link to Web-App
-[EV-Databse webapp](https://electric-vehicle-database.herokuapp.com)
+[EV-Database webapp](https://electric-vehicle-database.herokuapp.com)
 
 ## Wireframe
 ![Wireframe](/Wireframe.png)
